@@ -71,7 +71,8 @@
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold_700"
             android:textSize="16sp"
-            android:id="@+id/BottomSheetAddNewAccount"
+            android:textAlignment="center"
+                android:id="@+id/BottomSheetAddNewAccount"
             />
 
     </LinearLayout>
