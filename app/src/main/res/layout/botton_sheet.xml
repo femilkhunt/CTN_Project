@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/homeScreenAccTypeField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Account Name"
+            android:fontFamily="@font/roboto_medium_500"
+            android:textColorHint="@color/grey"
+            android:inputType="text"
+            android:id="@+id/homeScreenAccTypeBtn"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeScreenAccUserNameField"
+            android:layout_marginTop="15dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username/ Email"
+                android:fontFamily="@font/roboto_medium_500"
+                android:textColorHint="@color/grey"
+                android:inputType="textEmailAddress"
+                android:id="@+id/homeScreenAccUserNameBtn"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeScreenAccPasswordField"
+            android:layout_marginTop="15dp"
+            app:passwordToggleEnabled="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:fontFamily="@font/roboto_medium_500"
+                android:textColorHint="@color/grey"
+                android:inputType="textPassword"
+                android:id="@+id/homeScreenAccPasswordBtn"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            style="@style/buttonbg"
+            android:backgroundTint="@color/black"
+            android:text="Add New Account"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold_700"
+            android:textSize="16sp"
+            android:id="@+id/BottomSheetAddNewAccount"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
