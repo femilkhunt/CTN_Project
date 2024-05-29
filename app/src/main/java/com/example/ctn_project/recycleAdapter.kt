@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class recycleAdapter : RecyclerView.Adapter<recycleAdapter.ViewHolder>() {
+class recycleAdapter(var dataList: ArrayList<dataSummaray>) : RecyclerView.Adapter<recycleAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     }
@@ -17,7 +17,7 @@ class recycleAdapter : RecyclerView.Adapter<recycleAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return dataList.count()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

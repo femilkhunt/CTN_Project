@@ -1,12 +1,13 @@
 package com.example.ctn_project
 
 import android.annotation.SuppressLint
-import android.app.Dialog
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.TextInputEditText
 
@@ -21,6 +22,13 @@ class home_screen_activity : AppCompatActivity() {
         setContentView(R.layout.home_screen)
 
         var createBtn = findViewById<AppCompatImageView>(R.id.homeScreenAddMoreData)
+
+        var dataList : ArrayList<dataSummaray> = ArrayList()
+        var dataForAdapter = recycleAdapter(dataList)
+
+        val recycleview = findViewById<RecyclerView>(R.id.homeScreenRecycleView)
+        recycleview.layoutManager = LinearLayoutManager(this)
+        recycleview.adapter = dataForAdapter
 
         createBtn.setOnClickListener(){
             val Dialog = BottomSheetDialog(this)
@@ -37,8 +45,22 @@ class home_screen_activity : AppCompatActivity() {
 
                 if (emailStatus == true){
 
+                    val db = sqliteClass(this,null)
+
+                    var accType = accountType.text.toString()
+                    var userEmail = email.text.toString()
+                    var accPassword = password.text.toString()
+
+                    db.addData(accType, userEmail, accPassword)
 
                     Dialog.dismiss()
+
+//                    val cursor = db.getData()
+//
+//                    cursor?.moveToFirst()
+//                    dataList.addAll(it)
+
+
                 }else{
                     Toast.makeText(this,"Enter Proper Email",Toast.LENGTH_SHORT).show()
                 }
