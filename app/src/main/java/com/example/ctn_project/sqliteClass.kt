@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class sqliteClass(context : Context, nothing: Nothing?) : SQLiteOpenHelper(context, DATABASE,null ,VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = ("CREATE TABLE" + TABLE_NAME + "("
-                + ACC_TYPE + "ACCOUNT TYPE, " +
-                USER_NAME + "TEXT," +
-                ACC_PASS + "TEXT" + ")")
+        val query = ("CREATE TABLE " + TABLE_NAME + " ("
+                + ACC_TYPE + " TEXT, " +
+                USER_NAME + " TEXT," +
+                ACC_PASS + " TEXT" + ")")
 
         db?.execSQL(query)
     }
