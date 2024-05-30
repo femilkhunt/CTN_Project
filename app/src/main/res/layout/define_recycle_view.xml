@@ -2,14 +2,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-<androidx.appcompat.widget.AppCompatButton
+<LinearLayout
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    style="@style/buttonbg">
+
+
+<androidx.appcompat.widget.AppCompatTextView
+    android:layout_width="wrap_content"
     android:layout_height="65dp"
     android:id="@+id/homeScreenDetailBtn"
-    style="@style/buttonbg"
-    android:drawableEnd="@drawable/next_arrow"
-    android:paddingEnd="10dp"
+    android:text="fesdfc"
+    android:textAlignment="textStart"
+    android:paddingTop="15dp"
+    android:textSize="30sp"
     />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pass"
+        android:layout_width="75dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@id/homeScreenDetailBtn"
+        android:text="*****"
+        android:textSize="30sp"
+        android:layout_marginTop="6dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:layout_marginStart="200dp"
+        android:layout_toEndOf="@id/pass"
+        android:src="@drawable/next_arrow"
+        />
+
+</LinearLayout>
 
 </RelativeLayout>

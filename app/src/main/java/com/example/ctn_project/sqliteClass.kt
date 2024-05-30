@@ -35,11 +35,11 @@ class sqliteClass(context : Context, nothing: Nothing?) : SQLiteOpenHelper(conte
     }
 
 
-//    fun getData(): Cursor? {
-//        val db = this.readableDatabase
-//
-//        return db.rawQuery("SELECT * FROM" + TABLE_NAME, null)
-//    }
+    fun getData(): Cursor? {
+        val db = this.readableDatabase
+
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
+    }
 
 
         companion object{
@@ -47,7 +47,7 @@ class sqliteClass(context : Context, nothing: Nothing?) : SQLiteOpenHelper(conte
 
             var ACC_TYPE = "ACCOUNT TYPE"
 
-            var USER_NAME = "EMAIL/USERNAME"
+            var USER_NAME = "EMAIL USERNAME"
 
             var ACC_PASS = "PASSWORD"
 

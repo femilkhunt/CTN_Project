@@ -55,10 +55,19 @@ class home_screen_activity : AppCompatActivity() {
 
                     Dialog.dismiss()
 
-//                    val cursor = db.getData()
-//
-//                    cursor?.moveToFirst()
-//                    dataList.addAll(it)
+                    val cursor = db.getData()
+
+//                    if (cursor!!.moveToFirst()){
+//                        do {
+//                            dataList.add(dataSummaray(cursor.getString(1),cursor.getString(2),cursor.getString(3)))
+//                        }while (cursor.moveToNext())
+//                    }
+//                    cursor.close()
+
+
+                    while (cursor!!.moveToNext()){
+                        dataList.add(dataSummaray(cursor.getString(1),cursor.getString(2),cursor.getString(3)))
+                    }
 
 
                 }else{
