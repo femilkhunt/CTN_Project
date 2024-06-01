@@ -10,7 +10,7 @@ class sqliteClass(context : Context, nothing: Nothing?) : SQLiteOpenHelper(conte
     override fun onCreate(db: SQLiteDatabase?) {
         val query = ("CREATE TABLE " + TABLE_NAME + " ("
                 + ACC_TYPE + " TEXT, " +
-                USER_NAME + " TEXT," +
+                USER_EMAIL + " TEXT," +
                 ACC_PASS + " TEXT" + ")")
 
         db?.execSQL(query)
@@ -25,7 +25,7 @@ class sqliteClass(context : Context, nothing: Nothing?) : SQLiteOpenHelper(conte
         var values = ContentValues()
 
         values.put(ACC_TYPE,accType)
-        values.put(USER_NAME,userEmail)
+        values.put(USER_EMAIL,userEmail)
         values.put(ACC_PASS,accPassword)
 
         val db = this.writableDatabase
@@ -45,9 +45,9 @@ class sqliteClass(context : Context, nothing: Nothing?) : SQLiteOpenHelper(conte
         companion object{
             var TABLE_NAME = "Datas"
 
-            var ACC_TYPE = "ACCOUNT TYPE"
+            var ACC_TYPE = "ACCOUNTTYPE"
 
-            var USER_NAME = "EMAIL USERNAME"
+            var USER_EMAIL = "USERNAME"
 
             var ACC_PASS = "PASSWORD"
 
