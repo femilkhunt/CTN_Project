@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -16,7 +17,7 @@ class home_screen_activity : AppCompatActivity() {
     val emailFormat : String = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
     var emailStatus : Boolean = false
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_screen)
@@ -38,6 +39,7 @@ class home_screen_activity : AppCompatActivity() {
             var accountType = view.findViewById<TextInputEditText>(R.id.homeScreenAccTypeBtn)
             var email = view.findViewById<TextInputEditText>(R.id.homeScreenAccUserNameBtn)
             var password = view.findViewById<TextInputEditText>(R.id.homeScreenAccPasswordBtn)
+            var showCase = view.findViewById<AppCompatTextView>(R.id.homeScreenDetailBtn)
 
             addAccountBtn.setOnClickListener(){
 
@@ -57,17 +59,39 @@ class home_screen_activity : AppCompatActivity() {
 
                     val cursor = db.getData()
 
+
+                    if (cursor != null) {
+                        cursor.moveToFirst()
+                    }else{
+                        Toast.makeText(this,"Errorrr null check",Toast.LENGTH_SHORT).show()
+                    }
+
+                    if (cursor != null) {
+                        showCase.setText(cursor.getString(cursor.getColumnIndex(sqliteClass.ACC_TYPE)) + "\n" )
+                    }else{
+                        Toast.makeText(this,"Errorrr null check",Toast.LENGTH_SHORT).show()
+                    }
+
+                    while (cursor?.moveToNext() == true){
+                        showCase.setText(cursor.getString(cursor.getColumnIndex(sqliteClass.ACC_TYPE)) + "\n" )
+                    }
+
+                    if (cursor != null) {
+                        cursor.close()
+                    }
+
+
+
+
 //                    if (cursor!!.moveToFirst()){
 //                        do {
 //                            dataList.add(dataSummaray(cursor.getString(1),cursor.getString(2),cursor.getString(3)))
 //                        }while (cursor.moveToNext())
 //                    }
 //                    cursor.close()
-
-
-                    while (cursor!!.moveToNext()){
-                        dataList.add(dataSummaray(cursor.getString(1),cursor.getString(2),cursor.getString(3)))
-                    }
+//                    while (cursor!!.moveToNext()){
+//                        dataList.add(dataSummaray(cursor.getString(1),cursor.getString(2),cursor.getString(3)))
+//                    }
 
 
                 }else{

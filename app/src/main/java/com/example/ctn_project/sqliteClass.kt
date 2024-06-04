@@ -29,7 +29,7 @@ class sqliteClass(context : Context, nothing: Nothing?) : SQLiteOpenHelper(conte
         values.put(ACC_PASS,accPassword)
 
         val db = this.writableDatabase
-        db.execSQL("ALTER TABLE Datas ADD COLUMN USERNAME TEXT")
+
         db.insert(TABLE_NAME, null, values)
         db.close()
     }

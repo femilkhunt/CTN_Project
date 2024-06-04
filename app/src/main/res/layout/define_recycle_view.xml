@@ -13,7 +13,6 @@
     android:layout_width="wrap_content"
     android:layout_height="65dp"
     android:id="@+id/homeScreenDetailBtn"
-    android:text="fesdfc"
     android:textAlignment="textStart"
     android:paddingTop="15dp"
     android:textSize="30sp"
